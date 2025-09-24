@@ -1,0 +1,40 @@
+.book-card {
+    border: 1px solid rgb(173, 39, 39);
+    border-radius: 10px ;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    width: 250px;
+    
+}
+.book-img{
+    height: 80%;
+    padding: 20px;
+    overflow: hidden;
+
+}
+.book-img img{
+    max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+.book-title{
+    align-self: center;
+}
+.book-icons{
+    
+    display: flex;
+    width: 70px;
+    justify-content: space-between;
+ 
+    padding: 10px;
+    position:absolute;
+    top:0;
+    right: 0;
+
+}
+.book-icons button{
+    border: none;
+}
