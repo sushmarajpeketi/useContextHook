@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import './bookshow.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import BookEdit from './BookEdit';
-
+import BooksContext from '../Context/books';
 function BookShow({id,title,img,onDelete,onEdit}) {
   const [isEdit,setIsEdit] = useState(false)
-
+  const {books,deleteHandlerbyId} = useContext(BooksContext)
   const setEditHandler = () =>{
     setIsEdit(false)
   }
   let editHandler = (e) =>{
-    setIsEdit(true)
+    setIsEdit(!isEdit)
     
   }
   let deleteHandler = (id) =>{
-      onDelete(id)
+      deleteHandlerbyId(id)
   }
   return (
     <>
@@ -34,7 +34,7 @@ function BookShow({id,title,img,onDelete,onEdit}) {
         <div className='book-title'>{title}</div>
       </div>)
       :
-      (<BookEdit book={{id,title,img}} onEdit={onEdit} toggleEdit={setEditHandler} />)
+      (<BookEdit book={{id,title,img}} toggleEdit={setEditHandler} />)
     }
     </>
      

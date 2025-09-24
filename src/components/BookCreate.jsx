@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import BooksContext from '../Context/books'
 
-function BookCreate({onCreate}) {
 
+function BookCreate() {
+    let {createBookHandler} = useContext(BooksContext)
     let [createBook,setCreateBook] = useState({title:"",img:""})
 
     const addHandler = (createBook) =>{
         console.log("new createdbook is",createBook)
-        onCreate(createBook)
+        createBookHandler(createBook)
         setCreateBook({title:"",img:""})
     }
   return (

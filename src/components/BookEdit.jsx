@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
+import BooksContext from '../Context/books'
 import './bookshow.css'
-const BookEdit = ({book,onEdit,toggleEdit}) => {
+const BookEdit = ({book,toggleEdit}) => {
   const {id,title,img} = book
   const [editBook, setEditBook] = useState({title,img,id})
+  const {editHandlerById} = useContext(BooksContext)
   const saveEditHandler = (id,title) =>{
-      onEdit(id,title)
+      editHandlerById(id,title)
       toggleEdit()
 
   }
 
   return (
     <div className='book-card' key={id}>
-       
         <div className='book-img'><img src={img}/></div>
         <div>
           <p>title</p><br></br>
